@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="teste">
+    <% pessoas.forEach((pessoa) => { %>
+        <div class="flex">
+            <div class="width">
+                <label>Nome : </label id='colorText'> <%= pessoa.nome %><br/>
+                <label>Sobrenome : </label id='colorText'><%= pessoa.sobrenome %><br/>
+                <label>Altura : </label id='colorText'><%= pessoa.altura %><br/>
+                <label>Idade : </label id='colorText'><%= pessoa.idade %><br/>
+                <button><a href="/pessoas/apagar?id=1">delete</a></button><br/>
+               </div><br/>
+        </div>
+     <% }) %>
+
+     <style>
+        .flex{
+            width: 190px;
+            height: 100px;
+            background-color: lightblue;
+            padding: 5px 10px 5px 10px ;
+            font-family: Tahoma;
+            margin: 10px 30px 10px 30px;
+        }
+        .flex label{
+            color: rgb(121, 0, 0);
+        }
+        .teste{
+            display: grid;
+            grid-template-columns: repeat(6, 200px);
+            grid-column-gap: 2em;
+            grid-row-gap: 1em;
+
+        }
+        #btn{
+            border: none;
+        }
+     </style>
+</body>
+</html>
