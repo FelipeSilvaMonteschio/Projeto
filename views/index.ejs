@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="/views/icons/usuarios.png" type="icon">
+    <title>Pessoas</title>
 </head>
 <body >
     <div class="comeco">
         <ul class="criarbarra">
             <li>
-                <a href="/pessoas/criar"><button class="btn" >Criar usuários</button></a>
+                <a href="/pessoas/criar"><button class="btn" >Criar pessoas</button></a>
             </li>
         </ul>
 
@@ -22,7 +23,7 @@
                         <label>Sobrenome : </label id='colorText'><%= pessoa.sobrenome %><br/>
                         <label>Altura : </label id='colorText'><%= pessoa.altura %><br/>
                         <label>Idade : </label id='colorText'><%= pessoa.idade %><br/>
-                        <a href="/pessoas/delete?id=<%= pessoa.id %>"  ><button  id="delete" onclick="apagar()">Delete</button></a>
+                        <a href="/pessoas/delete?id=<%= pessoa.id %>"  ><button type="submit" id="delete" onclick="apagar()">Delete</button></a>
                        </div><br/>
                 </div>
              <% }) %>
@@ -32,15 +33,17 @@
     
 
      <script>
+
         function apagar(){
 
-            var confirmado = confirm('Deseja deletar?');
-            if(confirmado){
-                alert('Confirmado!');
-            }else{
-                alert('vc cancelou')
-            }
-
+            let deletar = confirm('tem certeza de que deseja deletar este usuário?');
+            switch (deletar)
+                {
+                    case true : alert('usuario deletado com sucesso'); 
+                    break;
+                    case false : window.location.href = '/pessoas'; 
+                    break;
+                }
         }
 
 
@@ -53,7 +56,7 @@
         
         .btn{
             border-radius: 8px;
-            background-color: rgb(57, 44, 231);
+            background-color:  #1c39a1;
             color: white;
             padding: 10px;
             border: none;
@@ -68,7 +71,7 @@
             
         }
         .criar{
-            background-color: blue;
+            background-color:  #1c39a1;
             height:60px ;
             padding-right: 100%;
         }
@@ -99,7 +102,7 @@
 
         #delete{
             border-radius: 8px;
-            background-color: rgb(41, 112, 212);
+            background-color:  #1c39a1;
             color: white;
             padding: 5px;
             border: none;
