@@ -22,7 +22,7 @@
                         <label>Sobrenome : </label id='colorText'><%= pessoa.sobrenome %><br/>
                         <label>Altura : </label id='colorText'><%= pessoa.altura %><br/>
                         <label>Idade : </label id='colorText'><%= pessoa.idade %><br/>
-                        <a href="/pessoas/delete?id=<%= pessoa.id %>"  ><button  id="delete" onclick="delte()">Delete</button></a>
+                        <a href="/pessoas/delete?id=<%= pessoa.id %>"  ><button  id="delete" onclick="apagar()">Delete</button></a>
                        </div><br/>
                 </div>
              <% }) %>
@@ -32,14 +32,14 @@
     
 
      <script>
-        function delte(){
+        function apagar(){
 
             var confirmado = confirm('Deseja deletar?');
-  if(confirmado){
-  	alert('Confirmado!');
-  }else{
-  	console.log(delte())
-  }
+            if(confirmado){
+                alert('Confirmado!');
+            }else{
+                alert('vc cancelou')
+            }
 
         }
 
@@ -79,7 +79,8 @@
 
 
         .pessoas{
-            display: flex;
+            display: grid;
+            grid-template-columns:  repeat(6, 250px)   ;
         }
         .divpessoas{
             width: 210px;
@@ -87,7 +88,7 @@
             background-color: lightblue;
             padding: 5px 10px 5px 10px ;
             font-family: Tahoma;
-            margin: 10px 40px 10px 40px;
+            margin: 10px;
             border-radius: 8px;
         }
         .divpessoas label{
