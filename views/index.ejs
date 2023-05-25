@@ -6,40 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body class="teste">
-    <% pessoas.forEach((pessoa) => { %>
-        <div class="flex">
-            <div class="width">
-                <label>Nome : </label id='colorText'> <%= pessoa.nome %><br/>
-                <label>Sobrenome : </label id='colorText'><%= pessoa.sobrenome %><br/>
-                <label>Altura : </label id='colorText'><%= pessoa.altura %><br/>
-                <label>Idade : </label id='colorText'><%= pessoa.idade %><br/>
-                <button><a href="/pessoas/apagar?id=1">delete</a></button><br/>
-               </div><br/>
-        </div>
-     <% }) %>
+<body >
+    <div class="comeco">
+        <ul class="criarbarra">
+            <li>
+                <a href="/pessoas/criar"><button class="btn" >Criar usuários</button></a>
+            </li>
+        </ul>
 
+        <div class="pessoas">
+            <% pessoas.forEach((pessoa) => { %>
+                <div class="divpessoas">
+                    <div class="width">
+                        <label>Nome : </label id='colorText'> <%= pessoa.nome %><br/>
+                        <label>Sobrenome : </label id='colorText'><%= pessoa.sobrenome %><br/>
+                        <label>Altura : </label id='colorText'><%= pessoa.altura %><br/>
+                        <label>Idade : </label id='colorText'><%= pessoa.idade %><br/>
+                        <a href="/pessoas/delete?id=<%= pessoa.id %>"  ><button  id="delete" onclick="delte()">Delete</button></a>
+                       </div><br/>
+                </div>
+             <% }) %>
+        </div>
+
+    </div>
+    
+
+     <script>
+        function delte(){
+
+            var confirmado = confirm('Deseja deletar?');
+  if(confirmado){
+  	alert('Confirmado!');
+  }else{
+  	console.log(delte())
+  }
+
+        }
+
+
+        //teste script testando
+     </script>
      <style>
-        .flex{
-            width: 190px;
-            height: 100px;
+        body{
+            background-color: rgb(83, 81, 80);
+        }
+        
+        .btn{
+            border-radius: 8px;
+            background-color: rgb(57, 44, 231);
+            color: white;
+            padding: 10px;
+            border: none;
+            margin: 0;
+            cursor: pointer;
+            font-size: 15px;
+            font-family: sans-serif;
+        }
+
+        .criarbarra{
+            position: relative;
+            
+        }
+        .criar{
+            background-color: blue;
+            height:60px ;
+            padding-right: 100%;
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+
+        .pessoas{
+            display: flex;
+        }
+        .divpessoas{
+            width: 210px;
+            height: 120px;
             background-color: lightblue;
             padding: 5px 10px 5px 10px ;
             font-family: Tahoma;
-            margin: 10px 30px 10px 30px;
+            margin: 10px 40px 10px 40px;
+            border-radius: 8px;
         }
-        .flex label{
+        .divpessoas label{
             color: rgb(121, 0, 0);
+            
         }
-        .teste{
-            display: grid;
-            grid-template-columns: repeat(6, 200px);
-            grid-column-gap: 2em;
-            grid-row-gap: 1em;
 
-        }
-        #btn{
+
+        #delete{
+            border-radius: 8px;
+            background-color: rgb(41, 112, 212);
+            color: white;
+            padding: 5px;
             border: none;
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-family: sans-serif;
         }
      </style>
 </body>

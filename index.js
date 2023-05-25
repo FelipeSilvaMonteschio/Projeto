@@ -50,23 +50,15 @@ app.post('/pessoas/criar', async function(req, res){
 
 
 
-
-// apagando pessoas e usuarios
-app.get('/pessoas/apagar', async function(req,res){
-  var pessoas = await pessoa.findAll();
-  res.render('pessoas',{pessoas})
-}
-)
-
-app.get('/pessoas/apagar', async function(req, res){
+app.get('/pessoas/delete', async function (req, res) {
   try {
-      await pessoa.destroy(req.body);
-      res.redirect('/pessoas')
+    await pessoa.destroy({ where: { id: req.query.id } });
+    res.redirect('/pessoas');
   } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Ocorreu um erro ao apagar o usuário.' });
+    console.error(err);
+    res.status(500).json({ message: 'Ocorreu um erro ao excluir o pessoa.' });
   }
-})
+});
 
 
 
