@@ -11,6 +11,9 @@
     <div class="comeco">
         <ul class="criarbarra">
             <li>
+                <h1>Pessoas Cadastradas</h1>
+            </li>
+            <li>
                 <a href="/pessoas/criar"><button class="btn" >Criar pessoas</button></a>
             </li>
         </ul>
@@ -53,7 +56,10 @@
         body{
             background-color: rgb(83, 81, 80);
         }
-        
+        h1{
+            color: white;
+            font-family: sans-serif;
+        }
         .btn{
             border-radius: 8px;
             background-color:  #1c39a1;
@@ -61,13 +67,17 @@
             padding: 10px;
             border: none;
             margin: 0;
+            margin-left: 34px;
+            margin-top: 24px;
             cursor: pointer;
             font-size: 15px;
             font-family: sans-serif;
         }
-
+        
         .criarbarra{
             position: relative;
+            display: flex;
+            margin-left: 50px;
             
         }
         .criar{
@@ -83,7 +93,7 @@
 
         .pessoas{
             display: grid;
-            grid-template-columns:  repeat(6, 250px)   ;
+            grid-template-columns:  repeat(6, 300px)   ;
         }
         .divpessoas{
             width: 210px;
@@ -92,6 +102,7 @@
             padding: 5px 10px 5px 10px ;
             font-family: Tahoma;
             margin: 10px;
+            margin-left: 75px;
             border-radius: 8px;
         }
         .divpessoas label{
